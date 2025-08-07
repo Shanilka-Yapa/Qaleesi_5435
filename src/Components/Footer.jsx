@@ -41,7 +41,7 @@ export default function Footer() {
           >About</Link>
 
           <Link 
-          to="/" 
+          to="/home" 
           style={{ 
             textDecoration: 'none', 
             color: '#682e81ff',
