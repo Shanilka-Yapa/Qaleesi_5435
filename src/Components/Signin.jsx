@@ -1,11 +1,42 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './login.css';
 import Logo from '../Assets/Images/Logo.png';
 import signdrag from '../assets/Images/signindragon.png';
 import back from '../assets/Images/Back.png';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 function Signin() {
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate('/');
+    };
+
+    const [formData, setFormData] = useState({
+        firstname: '',
+        lastname: '',
+        username: '',
+        email: '',
+        password: ''
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        //check if all fields are filled
+        if (formData.firstname && formData.lastname && formData.username && formData.email && formData.password) {
+            navigate('/login');
+        } else {
+            alert('Please fill all fields');
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
   return(
     <div className='login-container'>
         <img src={Logo} alt="Logo" className="logo" />
@@ -19,13 +50,46 @@ function Signin() {
                 fontSize: '40px',
                 fontWeight: 'bold',
                 color: '#2A0C3E',
-            }}>Create your account</h1>
-            <form className='login-form'>
-                <input type="text" placeholder="Firstname" className='signin-input-field'required /><br />
-                <input type="text" placeholder="Lastname" className='signin-input-field'required /><br />
-                <input type="text" placeholder="Username" className='signin-input-field'required /><br />
-                <input type="email" placeholder="Email" className='signin-input-field' required /><br />
-                <input type="password" placeholder="Password" className='signin-input-field' required /><br />
+                paddingBottom: '20px',
+            }}>Create your account</h1><br />
+            <br />
+            <form className='login-form' onSubmit={handleSubmit}>
+
+                <input type="text"
+                name='firstname'
+                placeholder="Firstname" 
+                className='signin-input-field' 
+                value={formData.firstname} 
+                onChange={handleChange} required /><br />
+
+                <input type="text" 
+                name='lastname'
+                placeholder="Lastname" 
+                className='signin-input-field' 
+                value={formData.lastname} 
+                onChange={handleChange} required /><br />
+
+                <input type="text" 
+                name='username'
+                placeholder="Username" 
+                className='signin-input-field' 
+                value={formData.username} 
+                onChange={handleChange} required /><br />
+
+                <input type="email" 
+                name='email'
+                placeholder="Email" 
+                className='signin-input-field' 
+                value={formData.email} 
+                onChange={handleChange} required /><br />
+
+                <input type="password" 
+                name='password'
+                placeholder="Password" 
+                className='signin-input-field' 
+                value={formData.password} 
+                onChange={handleChange} required /><br />
+
                 <button type="submit" className='login-button'>Sign Up</button>
             </form>
 
@@ -42,7 +106,7 @@ function Signin() {
             {/*adjusted for right in signin*/}
                           {/* Back button */}
             <button
-            onClick={() => window.history.back()}
+            onClick={handleBack}
             style={{
             position: 'absolute',
             top: '20px',

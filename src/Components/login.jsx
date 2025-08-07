@@ -1,11 +1,36 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './login.css';
 import Logo from '../Assets/Images/Logo.png';
 import logdrag from '../assets/Images/logindragon.png';
 import back from '../assets/Images/Back.png';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 
 function Login() {
+      const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Check if all fields are filled
+    if (formData.username && formData.email && formData.password) {
+      navigate('/home');
+    } else {
+      alert('Please fill in all fields');
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+    
   return(
     <div className='login-container'>
         <img src={Logo} alt="Logo" className="logo" />
@@ -43,11 +68,31 @@ function Login() {
                 fontWeight: 'bold',
                 color: '#2A0C3E',
             }}>Access to your account</h1>
-            <form className='login-form'>
-                <input type="text" placeholder="Username" className='input-field'required /><br />
-                <input type="email" placeholder="Email" className='input-field' required /><br />
-                <input type="password" placeholder="Password" className='input-field' required /><br />
-                <button type="submit" className='login-button'><Link to="/home" style={{textDecoration:'none', color:'inherit'}}>Login</Link></button>
+            <form className='login-form' onSubmit={handleSubmit}>
+                <input type="text"
+                name='username'
+                placeholder="Username" 
+                className='input-field' 
+                value={formData.username} 
+                onChange={handleChange} required /><br />
+
+                <input type="email" 
+                name='email'
+                placeholder="Email" 
+                className='input-field' 
+                value={formData.email} 
+                onChange={handleChange} required /><br />
+
+                <input type="password"
+                 name='password'
+                 placeholder="Password" 
+                 className='input-field' 
+                 value={formData.password} 
+                 onChange={handleChange} required /><br />
+
+                <button type="submit" 
+                className='login-button'>Login</button>
+
             </form>
             <p style={{ 
                 textAlign: 'center', 
