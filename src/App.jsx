@@ -6,6 +6,7 @@ import SignIn from './Components/Signin.jsx';
 import Home from './Components/Home.jsx';
 import Profile from './Components/profile.jsx';
 import About from './Components/About.jsx';
+import Articles from './Components/Articles.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/about" element={<About />} />
+        <Route path="/articles" element={<Articles />} />
       </Routes>
     </Router>
   )

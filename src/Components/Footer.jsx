@@ -59,7 +59,7 @@ export default function Footer() {
         }}>
 
           <Link 
-          to="/support" 
+          to="/Joinus" 
           style={{ 
             textDecoration: 'none', 
             color: '#682e81ff',
@@ -67,10 +67,10 @@ export default function Footer() {
           }}
           onMouseEnter={(e) => e.target.style.color = '#36074A'}
           onMouseLeave={(e) => e.target.style.color = '#682e81ff'}
-          >Support</Link>
+          >JoinUs</Link>
           
           <Link 
-          to="/resources" 
+          to="/Contactus" 
           style={{ 
             textDecoration: 'none', 
             color: '#682e81ff',
@@ -78,7 +78,7 @@ export default function Footer() {
           }}
           onMouseEnter={(e) => e.target.style.color = '#36074A'}
           onMouseLeave={(e) => e.target.style.color = '#682e81ff'}
-          >Resources</Link>
+          >ContactUs</Link>
         </div>
       </div>
 
@@ -93,7 +93,7 @@ export default function Footer() {
         fontSize: '18px'
       }}>
         <div>Email: qaleesi@info.lk</div>
-        <div>Contact: 0771234567</div>
+        <div>Telephone: 0771234567</div>
         <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
           <a href="https://www.facebook.com/"><img src={facebook} alt="Facebook" style={{ width: '24px', height: '24px' }} /></a>
           <a href="https://x.com/i/flow/login"><img src={twitter} alt="Twitter" style={{ width: '24px', height: '24px' }} /></a>
