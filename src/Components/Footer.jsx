@@ -59,7 +59,7 @@ export default function Footer() {
         }}>
 
           <Link 
-          to="/Joinus" 
+          to="/join" 
           style={{ 
             textDecoration: 'none', 
             color: '#682e81ff',

@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import Footer from './Footer.jsx';
 import './Home.css';
-import './Contact.css';
+import './Join.css';
+
 import Logo from '../assets/Images/Logo.png';
 import arrow from '../assets/Images/arrowback.png';
 import bground from '../assets/Images/white.png';
-import callIcon from '../assets/Images/call.png';
-import locationIcon from '../assets/Images/location.png';
+
 
 import homeIcon from '../assets/Images/Home.png';
 import aboutIcon from '../assets/Images/aboutus.png';
@@ -16,23 +16,11 @@ import creativeIcon from '../assets/Images/creativespace.png';
 import voiceIcon from '../assets/Images/yourvoice.png';
 import joinIcon from '../assets/Images/joinus.png';
 import contactIcon from '../assets/Images/contactus.png';
+import hands from '../assets/Images/volunteer1.png';
 
 
+export default function Join() {
 
-export default function Contact() {
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // You can replace this with actual form submission logic
-        console.log('Submitted:', { email, name });
-        alert(`Thanks for reaching out, ${name}!`);
-        setEmail('');
-        setName('');
-    };
-
-    
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const navigate = useNavigate();
@@ -151,52 +139,12 @@ export default function Contact() {
                 backgroundPosition: 'center',
 
             }}>
-                
-
-                <div className="hero-text">
-                    <h1 style={{ fontSize: '4.9rem', 
-                        marginBottom: '20px',
-                        letterSpacing: '5px',
-                        paddingTop:'0',
-                        color:'aliceblue'}}>
-                    Contact us
-                    </h1>
-                </div>
-
-                <div className="contact-form">
-                    <h2 style={{
-                        fontSize:'2.5rem'
-                    }}
-                    >Any questions or remarks? Just write us a message!</h2>
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            style={{
-                                fontFamily: 'Josefin Sans, sans-serif',  
-                            }}
-                            type="email"
-                            placeholder="Enter a valid email address"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-
-                        <input
-                            style={{
-                                fontFamily: 'Josefin Sans, sans-serif',
-                            }}
-                            type="text"
-                            placeholder="Enter your Name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        /><br />
-
-                        <button type="submit" style={{
-                            fontFamily: 'Josefin Sans, sans-serif'
-                        }}
-                        >SUBMIT</button>
-                    </form>
-                </div>
+                <img src={hands} alt="Volunteer Hands" style={{
+                    width: '100%',
+                    maxWidth: '1000px',
+                    marginTop: '20px',
+                    borderRadius: '10px',
+                }} />
 
             </section>
           </div>
@@ -211,79 +159,39 @@ export default function Contact() {
             color: '#36074A',
             maxWidth: '2000px',
             margin: '0 auto',
-            fontSize: '1.3rem'
+            fontSize: '1.3rem',
+            border: '2px dashed #36074A',
         }}
         >
-
-
-    {/* Call and location */}
-        <div
-            style={{
-                marginTop: '60px',
-                textAlign: 'center',
-                backgroundColor: '#340f4dff',
-                height: 'auto',
-                padding: '20px',
-                borderRadius: '50px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                fontFamily: 'Josefin Sans, sans-serif',
-                color: 'white',
-                fontSize: '1.2rem'
-            }}
-        >
-
-            {/*Phone section*/}
-            <div style={{
-                display:'flex',
-                alignItems:'flex-start',
-                gap:'12px',
-                maxWidth:'45%'
-            }}>
-                <img 
-                    src={callIcon}
-                    alt="Phone Icon"
-                    style={{
-                        width: '60px',
-                        height: '60px',
-                        border:'none',
-                        outline:'none'
-                    }} />
-                <div style={{ lineHeight: '1.5'}}>
-                    <h4 style={{ margin: '0 0 8px 0'}}> PHONE (LANDLINE)</h4>
-                    <p style={{ margin: '0'}}>
-                        +912 3567 8987<br />
-                        +912 5252 3336
-                    </p>
-                </div>
+          <h2>Fill the following form</h2>
+          <div className="form-container">
+            <div className="form-group">
+              <label htmlFor="first-name" className="form-label">First name</label>
+              <input type="text" id="first-name" name="first-name" className="form-input" />
             </div>
 
-            {/*Location section*/}
-            <div style={{
-                display:'flex',
-                alignItems:'flex-start',
-                gap:'12px',
-                maxWidth:'45%'
-            }}>
-                <img
-                    src={locationIcon}
-                    alt="Location Icon"
-                    style={{
-                        width: '60px',
-                        height: '60px',
-                        border:'none',
-                        outline:'none'
-                    }} />
-                <div style={{ lineHeight: '1.5'}}>
-                    <h4 style={{ margin: '0 0 8px 0'}}> LOCATION</h4>
-                    <p style={{ margin: '0'}}>
-                        123 Main Street<br />
-                        City, State, 12345
-                    </p>
-                </div>
+            <div className="form-group">
+              <label htmlFor="last-name" className="form-label">Last name</label>
+              <input type="text" id="last-name" name="last-name" className="form-input" />
             </div>
-        </div>
+
+            <div className="form-group">
+              <label htmlFor="email" className="form-label">Email</label>
+              <input type="email" id="email" name="email" className="form-input" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="phone-no" className="form-label">Phone no</label>
+              <input type="tel" id="phone-no" name="phone-no" className="form-input" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="reason" className="form-label">Reason</label>
+              <input type="text" id="reason" name="reason" className="form-input" />
+            </div>
+
+            <button className="form-button">Submit</button>
+          </div>
 
     </section>
 
