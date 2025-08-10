@@ -21,7 +21,7 @@ import joinUs from '../assets/Images/join.png';
 import impact from '../assets/Images/impact.png';
 
 
-export default function Home() {
+export default function About() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export default function Home() {
 
   const MenuItem = ({ icon, text, path }) => {
     const currentPath = window.location.pathname;
-    const isAbout = path === '/about';
+    const isHome = path === '/';
     const isActive = currentPath === path;
 
     return (
@@ -46,8 +46,8 @@ export default function Home() {
             padding: '10px',
             borderRadius: '5px',
             transition: 'all 0.3s ease',
-            opacity: isActive || isAbout ? 1 : 0.6,
-            fontWeight: isActive || isAbout ? 'bold' : 'normal'
+            opacity: isActive || isHome ? 1 : 0.6,
+            fontWeight: isActive || isHome ? 'bold' : 'normal'
           }}
         >
           <img 
@@ -56,7 +56,7 @@ export default function Home() {
             style={{ 
               width: '24px', 
               height: '24px',
-              opacity: isActive || isAbout ? 1 : 0.6
+              opacity: isActive || isHome ? 1 : 0.6
             }} 
           />
           {text}

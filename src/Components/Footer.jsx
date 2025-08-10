@@ -70,7 +70,7 @@ export default function Footer() {
           >JoinUs</Link>
           
           <Link 
-          to="/Contactus" 
+          to="/contact" 
           style={{ 
             textDecoration: 'none', 
             color: '#682e81ff',
