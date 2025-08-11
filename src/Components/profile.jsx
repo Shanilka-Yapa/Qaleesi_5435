@@ -4,12 +4,7 @@ import Logo from '../assets/Images/Logo.png';
 import homeIcon from '../assets/Images/Home.png';
 
 const Profile = () => {
-  const profileData = {
-    name: 'Shanilka',
-    username: 'Shanilka T. Yapa',
-    email: 'shanilka.thulshani@gmail.com',
-    phone: '0712345678'
-  };
+  const storedUser = JSON.parse(localStorage.getItem("user")) || {};
 
   return (
     <div style={{
@@ -52,7 +47,7 @@ const Profile = () => {
           <h2 style={{ 
             margin: 0,
             fontSize: '44px'}}>
-            Welcome, <span style={{ color: '#FFD700' }}>{profileData.name}</span>
+            Welcome, <span style={{ color: '#FFD700' }}>{storedUser.username || 'Guest'}</span>
           </h2>
           <div style={{
             width: '130px',
@@ -67,7 +62,7 @@ const Profile = () => {
             <label style={{ width: '100px', color: '#E6E0EB', paddingRight: '100px' }}>Username</label>
             <input
               type="text"
-              value={profileData.username}
+              value={storedUser.username || ''}
               readOnly
               style={{
                 backgroundColor: 'white',
@@ -85,7 +80,7 @@ const Profile = () => {
             <label style={{ width: '100px', color: '#E6E0EB', paddingRight: '100px' }}>Email</label>
             <input
               type="email"
-              value={profileData.email}
+              value={storedUser.email || ''}
               readOnly
               style={{
                 backgroundColor: 'white',
@@ -99,23 +94,6 @@ const Profile = () => {
             />
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <label style={{ width: '100px', color: '#E6E0EB', paddingRight: '100px' }}>Phone</label>
-            <input
-              type="tel"
-              value={profileData.phone}
-              readOnly
-              style={{
-                backgroundColor: 'white',
-                border: 'none',
-                borderRadius: '20px',
-                padding: '12px 20px',
-                width:'500px',
-                fontFamily: 'Josefin Sans, sans-serif',
-                fontSize:'1.2rem'
-              }}
-            />
-          </div>
         </div>
 
         <div style={{ 

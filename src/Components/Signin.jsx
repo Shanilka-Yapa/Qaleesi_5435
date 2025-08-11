@@ -20,15 +20,34 @@ function Signin() {
         password: ''
     });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        //check if all fields are filled
-        if (formData.firstname && formData.lastname && formData.username && formData.email && formData.password) {
-            navigate('/login');
-        } else {
-            alert('Please fill all fields');
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (formData.firstname && formData.lastname && formData.username && formData.email && formData.password) {
+        try {
+            const res = await fetch('http://localhost:5000/api/users/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                alert('Registration successful!');
+                navigate('/login');
+            } else {
+                alert(data.message || 'Error registering user');
+            }
+        } catch (err) {
+            console.error(err);
+            alert('Server error');
         }
-    };
+    } else {
+        alert('Please fill all fields');
+    }
+};
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
