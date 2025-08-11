@@ -13,15 +13,40 @@ function Login() {
     password: ''
   });
 
-  const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
-    // Check if all fields are filled
+
     if (formData.username && formData.email && formData.password) {
-      navigate('/home');
+        try {
+            const res = await fetch('http://localhost:5000/api/users/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password
+                })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+
+                localStorage.setItem("user", JSON.stringify(data.user));//save userinfo in local storage for profile page
+
+                alert('Login successful!');
+                navigate('/home');
+            } else {
+                alert(data.message || 'Login failed');
+            }
+        } catch (err) {
+            console.error(err);
+            alert('Server error');
+        }
     } else {
-      alert('Please fill in all fields');
+        alert('Please fill in all fields');
     }
-  };
+};
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
