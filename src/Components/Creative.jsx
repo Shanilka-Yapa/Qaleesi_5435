@@ -1,12 +1,15 @@
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import Footer from './Footer.jsx';
 import './Home.css';
-import DragonImg from '../assets/Images/articlesdragon.png';
+import './Contact.css';
+import './Creative.css';
 import Logo from '../assets/Images/Logo.png';
 import arrow from '../assets/Images/arrowback.png';
-import books from '../assets/Images/books.png';
 import bground from '../assets/Images/white.png';
+import create from '../assets/Images/Dragon 6.png';
+
+
 
 import homeIcon from '../assets/Images/Home.png';
 import aboutIcon from '../assets/Images/aboutus.png';
@@ -15,23 +18,31 @@ import creativeIcon from '../assets/Images/creativespace.png';
 import joinIcon from '../assets/Images/joinus.png';
 import contactIcon from '../assets/Images/contactus.png';
 
-import img1 from '../assets/Images/Malala.png';
-import img2 from '../assets/Images/Greta.png';
-import img3 from '../assets/Images/Amanda.png';
-import img4 from '../assets/Images/Waris.png';
-import img5 from '../assets/Images/Halima.png';
-
-export default function Articles() {
 
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+export default function Creative() {
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
 
-  const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // You can replace this with actual form submission logic
+        console.log('Submitted:', { email, name });
+        alert(`Thanks for reaching out, ${name}!`);
+        setEmail('');
+        setName('');
+    };
 
-  const MenuItem = ({ icon, text, path }) => {
-    const currentPath = window.location.pathname;
-    const isHome = path === '/';
-    const isActive = currentPath === path;
+    
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const navigate = useNavigate();
+
+
+    const MenuItem = ({ icon, text, path }) => {
+        const currentPath = window.location.pathname;
+        const isHome = path === '/';
+        const isActive = currentPath === path;
 
     return (
       <li style={{ marginBottom: '15px' }}>
@@ -134,32 +145,19 @@ export default function Articles() {
               padding: '40px',
               color: 'white',
               height: '400px',
-              alignItems: 'center'
+              alignItems: 'center',
+              flexDirection:'row-reverse'
             }}>
 
               <div className="hero-text">
-                <h1 style={{ 
-                    fontSize: '2.8rem', 
-                    marginBottom: '20px',
-                    letterSpacing: '10px' }}>
-                  Articles:<br />
+                <h1 style={{ fontSize: '2.8rem', marginBottom: '20px' }}>
+                  Welcome to your<br />Creative playground
                 </h1>
-                <p style={{ 
-                    fontSize: '1.5rem', 
-                    lineHeight: '1.6',
-                    letterSpacing: '13px' ,
-                    fontWeight: 'bold'}}>
-                  HANDLE WITH CURIOSITY.
-                </p>
 
-                <img src={books} alt="Books" style={{ 
-                    width: '250px', 
-                    height: 'auto',
-                    borderRadius: '10px' }} />
               </div>
 
               <img 
-                src={DragonImg} 
+                src={create} 
                 alt="Dragon Mascot" 
                 style={{
                   width: '450px',
@@ -170,54 +168,48 @@ export default function Articles() {
             </section>
           </div>
         </div>
-        
-        {/* Clickable Image Slider */}
-        <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop: '40px',
-            border: '2px dashed #36074A',
-            borderRadius: '10px',
-            padding: '20px',
-        }}>
-            <div
-                onClick={() => setCurrentSlide(prev => (prev + 1) % 5)}
-                style={{
-                    width: '950px',
-                    height: '600px',
-                    borderRadius: '20px',
-                    overflow: 'hidden',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                    position: 'relative',
-                    cursor: 'pointer',
-                }}
-            >
-            {[img1, img2, img3, img4, img5].map((img, index) => (
-            <img
-                key={index}
-                src={img}
-                alt={`Slide ${index + 1}`}
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    transition: 'opacity 1s ease-in-out',
-                    opacity: currentSlide === index ? 1 : 0,
-                    pointerEvents: currentSlide === index ? 'auto' : 'none',
-                }}
-            />
-        ))}
-        </div>
-        </div>
 
+        <section>
+            <div className="idea-form-container">
+                <h1 className="form-title">SHARE YOUR IDEA OR IMAGE</h1>
+                <div className="idea-input-box">
+                    <textarea
+                        className="idea-textarea"
+                        placeholder="Write your brilliant idea here"
+                    ></textarea>
+                </div>
+                <div className="button-container">
+                    <button className="upload-button">Upload</button>
+                    <button className="upload-button">Submit</button>
+                </div>
+            </div>
+        </section><br />
 
+        <section>
+            <div className="idea-form-container" style={{
+            backgroundColor: '#ceb7dbff',
+            padding: '60px 20px',
+            borderRadius: '50px',
+            fontFamily: 'Josefin Sans, sans-serif',
+            color: '#36074A',
+            maxWidth: '2000px',
+            margin: '0 auto',
+            fontSize: '1.3rem'
+            }}>
+                <h1 className='form-title'>YOUR GALLERY</h1>
+                <div className="container">
+                    <div className="empty-box">
+                        <div className='button-row'>
+                            <button className='edit-button'>Edit</button>
+                            <button className='edit-button'>Delete</button>
+                        </div>
+                    </div>
+                    <div className="empty-box"></div>
+                </div>
+            </div>
+        </section>
 
       </main>
-
       <Footer />
     </div>
   );

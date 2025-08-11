@@ -38,6 +38,7 @@ export default function Footer() {
           }}
           onMouseEnter={(e) => e.target.style.color = '#36074A'}
           onMouseLeave={(e) => e.target.style.color = '#682e81ff'}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >About</Link>
 
           <Link 
@@ -49,6 +50,7 @@ export default function Footer() {
           }}
           onMouseEnter={(e) => e.target.style.color = '#36074A'}
           onMouseLeave={(e) => e.target.style.color = '#682e81ff'}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >Home</Link>
         </div>
 
@@ -67,6 +69,7 @@ export default function Footer() {
           }}
           onMouseEnter={(e) => e.target.style.color = '#36074A'}
           onMouseLeave={(e) => e.target.style.color = '#682e81ff'}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >JoinUs</Link>
           
           <Link 
@@ -78,6 +81,7 @@ export default function Footer() {
           }}
           onMouseEnter={(e) => e.target.style.color = '#36074A'}
           onMouseLeave={(e) => e.target.style.color = '#682e81ff'}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >ContactUs</Link>
         </div>
       </div>

@@ -12,14 +12,15 @@
 }
 
 .form-label {
-  width: 120px;
+  width: 150px;
+  height: 25px;
   background-color: #3b0a45;
   color: #ffffff;
   padding: 10px;
   border-radius: 20px;
-  text-align: right;
+  text-align: left;
   margin-right: 10px;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
 }
 
 .form-input {
@@ -27,15 +28,22 @@
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #ccc;
-  width: 250px;
+  width: 700px;
+  height: 25px;
 }
 
 .form-button {
-  background-color: #4B0082;
+  background-color: #3b0a45;
   color: #FFFFFF;
   padding: 10px 20px;
   margin: 20px 0;
-  border-radius: 5px;
+  border-radius: 15px;
   border: none;
   cursor: pointer;
+  font-size: large;
+  font-family: 'josefin sans', sans-serif;
+}
+
+.form-button:hover {
+  background-color: #5c2a5b;
 }

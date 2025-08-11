@@ -5,12 +5,12 @@ import './Home.css';
 import DragonImg from '../assets/Images/Homeblob.png';
 import Logo from '../assets/Images/Logo.png';
 import profile from '../assets/Images/person.png';
+import bground from '../assets/Images/white.png';
 
 import homeIcon from '../assets/Images/Home.png';
 import aboutIcon from '../assets/Images/aboutus.png';
 import articlesIcon from '../assets/Images/articles.png';
 import creativeIcon from '../assets/Images/creativespace.png';
-import voiceIcon from '../assets/Images/yourvoice.png';
 import joinIcon from '../assets/Images/joinus.png';
 import contactIcon from '../assets/Images/contactus.png';
 
@@ -169,7 +169,6 @@ export default function Home() {
             <MenuItem icon={aboutIcon} text="About us" path="/about" />
             <MenuItem icon={articlesIcon} text="Articles" path="/articles" />
             <MenuItem icon={creativeIcon} text="Creative space" path="/creative" />
-            <MenuItem icon={voiceIcon} text="Your voice" path="/voice" />
             <MenuItem icon={joinIcon} text="Join us" path="/join" />
             <MenuItem icon={contactIcon} text="Contact us" path="/contact" />
           </ul>
@@ -179,7 +178,9 @@ export default function Home() {
           <div style={{ flex: 1 }}>
             <section className="hero-section" style={{
               display: 'flex',
-              backgroundColor: '#36074A',
+              backgroundImage: `url(${bground})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
               borderRadius: '20px',
               padding: '40px',
               color: 'white',

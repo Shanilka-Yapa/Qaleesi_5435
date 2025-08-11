@@ -5,12 +5,12 @@ import './Home.css';
 import Logo from '../assets/Images/Logo.png';
 import girls from '../assets/Images/girlsabout.png';
 import arrow from '../assets/Images/arrowback.png';
+import bground from '../assets/Images/white.png';
 
 import homeIcon from '../assets/Images/Home.png';
 import aboutIcon from '../assets/Images/aboutus.png';
 import articlesIcon from '../assets/Images/articles.png';
 import creativeIcon from '../assets/Images/creativespace.png';
-import voiceIcon from '../assets/Images/yourvoice.png';
 import joinIcon from '../assets/Images/joinus.png';
 import contactIcon from '../assets/Images/contactus.png';
 
@@ -117,7 +117,6 @@ export default function About() {
             <MenuItem icon={aboutIcon} text="About us" path="/about" />
             <MenuItem icon={articlesIcon} text="Articles" path="/articles" />
             <MenuItem icon={creativeIcon} text="Creative space" path="/creative" />
-            <MenuItem icon={voiceIcon} text="Your voice" path="/voice" />
             <MenuItem icon={joinIcon} text="Join us" path="/join" />
             <MenuItem icon={contactIcon} text="Contact us" path="/contact" />
           </ul>
@@ -128,7 +127,9 @@ export default function About() {
             <section className="hero-section" style={{
               display: 'flex',
               flexDirection: 'column',
-              backgroundColor: '#36074A',
+              backgroundImage: `url(${bground})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
               borderRadius: '20px',
               padding: '40px',
               color: 'white',

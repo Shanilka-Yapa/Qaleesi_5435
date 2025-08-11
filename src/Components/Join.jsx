@@ -7,13 +7,15 @@ import './Join.css';
 import Logo from '../assets/Images/Logo.png';
 import arrow from '../assets/Images/arrowback.png';
 import bground from '../assets/Images/white.png';
+import img1 from '../assets/Images/volunt1.png';
+import img2 from '../assets/Images/volunt2.png';
+import img3 from '../assets/Images/volunt3.png';
 
 
 import homeIcon from '../assets/Images/Home.png';
 import aboutIcon from '../assets/Images/aboutus.png';
 import articlesIcon from '../assets/Images/articles.png';
 import creativeIcon from '../assets/Images/creativespace.png';
-import voiceIcon from '../assets/Images/yourvoice.png';
 import joinIcon from '../assets/Images/joinus.png';
 import contactIcon from '../assets/Images/contactus.png';
 import hands from '../assets/Images/volunteer1.png';
@@ -116,7 +118,6 @@ export default function Join() {
             <MenuItem icon={aboutIcon} text="About us" path="/about" />
             <MenuItem icon={articlesIcon} text="Articles" path="/articles" />
             <MenuItem icon={creativeIcon} text="Creative space" path="/creative" />
-            <MenuItem icon={voiceIcon} text="Your voice" path="/voice" />
             <MenuItem icon={joinIcon} text="Join us" path="/join" />
             <MenuItem icon={contactIcon} text="Contact us" path="/contact" />
           </ul>
@@ -192,6 +193,42 @@ export default function Join() {
 
             <button className="form-button">Submit</button>
           </div>
+
+    </section>
+    <section style={{
+            padding: '60px 20px',
+            borderRadius: '50px',
+            fontFamily: 'Josefin Sans, sans-serif',
+            color: '#36074A',
+            maxWidth: '2000px',
+            margin: '0 auto',
+            fontSize: '1.3rem',
+            border: '2px dashed #36074A',
+    }}>
+      <h2>Our Volunteers</h2>
+      <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '20px' // space between images
+}}>
+    <img src={img1} alt="Volunteer 1" style={{
+        width: '100%',
+        maxWidth: '800px',
+        borderRadius: '10px',
+    }} />
+    <img src={img2} alt="Volunteer 2" style={{
+        width: '100%',
+        maxWidth: '800px',
+        borderRadius: '10px',
+    }} />
+    <img src={img3} alt="Volunteer 3" style={{
+        width: '100%',
+        maxWidth: '800px',
+        borderRadius: '10px',
+    }} />
+</div>
+
 
     </section>
 

@@ -13,7 +13,6 @@ import homeIcon from '../assets/Images/Home.png';
 import aboutIcon from '../assets/Images/aboutus.png';
 import articlesIcon from '../assets/Images/articles.png';
 import creativeIcon from '../assets/Images/creativespace.png';
-import voiceIcon from '../assets/Images/yourvoice.png';
 import joinIcon from '../assets/Images/joinus.png';
 import contactIcon from '../assets/Images/contactus.png';
 
@@ -128,7 +127,6 @@ export default function Contact() {
             <MenuItem icon={aboutIcon} text="About us" path="/about" />
             <MenuItem icon={articlesIcon} text="Articles" path="/articles" />
             <MenuItem icon={creativeIcon} text="Creative space" path="/creative" />
-            <MenuItem icon={voiceIcon} text="Your voice" path="/voice" />
             <MenuItem icon={joinIcon} text="Join us" path="/join" />
             <MenuItem icon={contactIcon} text="Contact us" path="/contact" />
           </ul>
@@ -185,7 +183,7 @@ export default function Contact() {
                                 fontFamily: 'Josefin Sans, sans-serif',
                             }}
                             type="text"
-                            placeholder="Enter your Name"
+                            placeholder="Enter your Messsage"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
